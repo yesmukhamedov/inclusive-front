@@ -1,0 +1,88 @@
+.dark {
+    color: #b8bfbf;
+    background-color: #232529;
+}
+
+.dark table tr td {
+    border: 1px solid rgb(255, 255, 255);
+    padding: 5px;
+}
+
+.content table thead tr td {
+    text-align: center;
+}
+
+.content table {
+    width: 100%;
+}
+
+.light {
+    color: black;
+    background-color: white;
+}
+
+.light table tr td {
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
+}
+
+.content > div:not(.editor div) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.content > div:not(.test div) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content p {
+    text-indent: 25px;
+    text-align: justify;
+}
+
+.content img {
+    width: 30%;
+}
+
+.darkHeader {
+    color: #b8bfbf;
+    background-color: rgb(0 21 41);
+}
+
+.lightHeader {
+    color: black;
+    background-color: white;
+}
+
+.darkFooter {
+    color: #b8bfbf;
+    background-color: #292c31;
+}
+
+.lightFooter {
+    color: black;
+    background-color: white;
+    border-top: 1px solid  #d7d7df;
+}
+
+.ant-space-item{
+    width: 100% !important;
+}
+.ant-checkbox-wrapper{
+    display: flex;
+    align-items: center;
+    margin-top:-7px;
+}
+.ant-card-body{
+    width: 100% !important;
+}
+.quizHead{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
