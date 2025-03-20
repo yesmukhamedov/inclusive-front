@@ -236,7 +236,7 @@ const Test = ({ content }) => {
                     description={
                       <>
                         {item.options.map((option, index) => (
-                          <div style={{ display: "flex" }} key={index}>
+                          <div style={{ display: "flex" }} key={index} onClick={() => window.speechSynthesis.speak(new SpeechSynthesisUtterance(option.text.replace(/<[^>]*>/g, '')))}>
                             <Checkbox
                               checked={state.form.quizForm.questions
                                 ?.find((question) => question._id === item._id)
@@ -398,6 +398,7 @@ const Test = ({ content }) => {
                   <Input
                     placeholder="Жауап үлгісі"
                     value={option.text}
+                    status={new Set(state.form.collectionForm.options.map(o => o.text).filter((t, i, arr) => arr.indexOf(t) !== i)).has(option.text) && option.text.length ? "error" : null}
                     onChange={(e) =>
                       setState({
                         ...state,
@@ -493,12 +494,17 @@ const Test = ({ content }) => {
                       {item.options.map((option, index) => (
                         <li
                           key={index}
-                          style={{ color: option.truth ? "green" : "" }}
+                          style={{ color: option.truth ? "green" : "", display: "flex", justifyContent: "space-between" }}
                         >
                           <div
                             style={{ marginLeft: 14 }}
                             dangerouslySetInnerHTML={{ __html: option.text }}
                           />
+                          <Button
+                            onClick={() => window.speechSynthesis.speak(new SpeechSynthesisUtterance(option.text.replace(/<[^>]*>/g, '')))}
+                          >
+                            Тыңдау
+                          </Button>
                         </li>
                       ))}
                     </ul>

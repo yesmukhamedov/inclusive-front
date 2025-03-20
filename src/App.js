@@ -34,6 +34,7 @@ import {
 } from "antd";
 
 import Multimedia, { list } from "./content";
+import Loader from "./components/Loader";
 import "./style.css";
 import { login, logout, register, authMe, setTheme } from "./redux/slices/auth";
 const { Sider, Content, Header, Footer } = Layout;
@@ -169,6 +170,15 @@ function App({ ...props }) {
       },
     });
 
+    const [showLoader, setShowLoader] = React.useState(true);
+
+  React.useEffect(() => {
+    if(showLoader) {
+      const timer = setTimeout(() => setShowLoader(false), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [showLoader]);
+
   return (
     <>
       <div
@@ -180,14 +190,17 @@ function App({ ...props }) {
         }}
       >
         <Row style={{ width: "100%" }}>
-          <Col span={2}>
-            <></>
-          </Col>
           <Col
-            span={20}
+            span={22}
             style={{ display: "flex", justifyContent: "space-between" }}
           >
-            <a href={"/"}>Python үйрену</a>
+            <a href="/">
+            <div style={{display: "flex"}}>
+  <div style={{ padding: 5, margin: 5, width: 75, height: 75, overflow: "hidden"}}>
+  <Image preview={false} src="/logo.png" style={{ objectFit: "cover" }} /> </div>
+  <div style={{fontSize: 50, alignItems: "center", justifyContent: "center"}}><b>Shakharbanu</b></div></div>
+  
+</a>
             <div>
               <Switch
                 style={{ marginLeft: 14, marginRight: 14 }}
@@ -373,7 +386,7 @@ function App({ ...props }) {
                         rules={[
                           {
                             required: false,
-                            // message: 'Өтініш, Мұғалім кодын көрсетіңіз!',
+                            message: "Өтініш, Мұғалім кодын көрсетіңіз!",
                           },
                         ]}
                       >
@@ -400,18 +413,6 @@ function App({ ...props }) {
                         }
                       />
                     </Form.Item>
-                    {/* <Form.Item
-                        label="Құпия сөз"
-                        name="password"
-                        rules={[
-                          {
-                            required: true,
-                            message: 'Өтініш, құпия сөз енгізіңіз!',
-                          },
-                        ]}
-                      >
-                        <Input.Password  onChange={e=>setForm('register', 'password', e.target.value)}/>
-                      </Form.Item> */}
                     <Form.Item
                       wrapperCol={{
                         offset: 8,
@@ -430,11 +431,11 @@ function App({ ...props }) {
                                   ? state.form.register.supervisorId
                                   : null,
                             })
-                            // .unwrap().then(result=>{
-                            //   if(result.payload && result.payload.user){
-                            //     drawer('register');
-                            //   }
-                            // })
+                            .unwrap().then(result=>{
+                              if(result.payload && result.payload.user){
+                                drawer('register');
+                              }
+                            })
                           );
                           drawer("register");
                         }}
@@ -454,17 +455,13 @@ function App({ ...props }) {
       </div>
       <Layout>
         <Sider theme={state.user.theme} width={256}>
-          <Image
-            preview={false}
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/1920px-Python_logo_and_wordmark.svg.png"
-          />
           <Menu
             style={{ marginTop: 28 }} //minWidth: 500,
             theme={state.user.theme}
             size="large"
-            onClick={(any) => setState({ ...state, content: any.key })}
+            onClick={(any) => {setShowLoader(true); setState({ ...state, content: any.key })}}
             mode="inline"
-            defaultOpenKeys={["Menu1_Child0_Content0", "Menu2_Child0_Content0"]}
+            defaultOpenKeys={["Menu1_Child0_Content0", "Menu2_Child0_Content0", "Menu3_Child1_Content1"]}
           >
             {senu(list)}
           </Menu>
@@ -486,11 +483,12 @@ function App({ ...props }) {
                 minHeight: window.innerHeight - 285,
               }}
             >
-              <Multimedia
+              {showLoader ? <Loader /> : <Multimedia
                 className={`${state.user.theme}Multimedia`}
                 content={state.content}
                 user={state.user}
-              />
+              />}
+              
 
               <Affix
                 offsetTop={120}

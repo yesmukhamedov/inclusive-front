@@ -1,34 +1,64 @@
 import React from 'react';
 import Test from './Test';
+import Student from './Student';
 import Menu1_Child1_Content1 from './Menu1_Child1_Content1';
+import Menu1_Child1_Content2 from './Menu1_Child1_Content2.js';
+import Menu1_Child1_Content3 from './Menu1_Child1_Content3';
+import Menu1_Child1_Content4 from './Menu1_Child1_Content4';
+import Menu1_Child1_Content5 from './Menu1_Child1_Content5';
+import Menu1_Child1_Content6 from './Menu1_Child1_Content6';
+import Menu1_Child1_Content7 from './Menu1_Child1_Content7';
 import Menu1_Child2_Content1 from './Menu1_Child2_Content1';
-import Menu1_Child3_Content1 from './Menu1_Child3_Content1';
-import Menu1_Child3_Content2 from './Menu1_Child3_Content2';
-import Menu1_Child4_Content1 from './Menu1_Child4_Content1';
-import Menu1_Child5_Content1 from './Menu1_Child5_Content1';
-import Menu1_Child5_Content2 from './Menu1_Child5_Content2';
-import Menu1_Child6_Content1 from './Menu1_Child6_Content1';
-import Menu1_Child7_Content1 from './Menu1_Child7_Content1';
-import Menu1_Child7_Content2 from './Menu1_Child7_Content2';
-import Menu2_Child1_Content1 from './Menu2_Child1_Content1';
-import Menu2_Child1_Content2 from './Menu2_Child1_Content2';
-import Menu2_Child1_Content3 from './Menu2_Child1_Content3';
-import Menu2_Child1_Content4 from './Menu2_Child1_Content4';
-import Menu2_Child2_Content1 from './Menu2_Child2_Content1';
-
+import Menu1_Child2_Content2 from './Menu1_Child2_Content2';
+import Menu1_Child2_Content3 from './Menu1_Child2_Content3';
+import Menu1_Child2_Content4 from './Menu1_Child2_Content4';
+import Menu1_Child2_Content5 from './Menu1_Child2_Content5';
+import Menu1_Child2_Content6 from './Menu1_Child2_Content6';
+import Menu1_Child2_Content7 from './Menu1_Child2_Content7';
+import Menu3_Child1_Content1 from './Menu3_Child1_Content1';
 
 export const list = [
     {
-        label: 'Тілдің негіздері',
+        label: 'Оқулықтар',
         value: 'Menu1_Child0_Content0',
         subList: [
             {
-                label: 'Python бағдарламалау тілімен танысу және бағдарламалауды қамтамасыз ету',
+                label: '3-сынып',
                 value: 'Menu1_Child1_Content0',
                 subList: [
                     {
-                        label: 'Python бағдарламалау тілімен танысу',
+                        label: '1-сабақ. Сөз таптары.',
                         value: 'Menu1_Child1_Content1',
+                        subList: []
+                    },
+                    {
+                        label: '2-сабақ. Зат есім.',
+                        value: 'Menu1_Child1_Content2',
+                        subList: []
+                    },
+                    {
+                        label: '3-сабақ. Негізгі және туынды зат есім.',
+                        value: 'Menu1_Child1_Content3',
+                        subList: []
+                    },
+                    {
+                        label: '4-сабақ. Зат есімнің тәуелденуі.',
+                        value: 'Menu1_Child1_Content4',
+                        subList: []
+                    },
+                    {
+                        label: '5-сабақ. Жалқы және жалпы есім.',
+                        value: 'Menu1_Child1_Content5',
+                        subList: []
+                    },
+                    {
+                        label: '6-сабақ. Зат есімнің жекеше және көпше түрі.',
+                        value: 'Menu1_Child1_Content6',
+                        subList: []
+                    },
+                    {
+                        label: '7-сабақ. Болымды және болымсыз етістік.',
+                        value: 'Menu1_Child1_Content7',
                         subList: []
                     },
                     {
@@ -39,12 +69,42 @@ export const list = [
                 ]
             },
             {
-                label: 'Бірінші бағдарлама',
+                label: '4-сынып',
                 value: 'Menu1_Child2_Content0',
                 subList: [
                     {
-                        label: 'Мәліметтер енгізу, өңдеу және шығару print() функциясы',
+                        label: '1-сабақ. Зат есімнің септелуі.',
                         value: 'Menu1_Child2_Content1',
+                        subList: []
+                    },
+                    {
+                        label: '2-сабақ. Атау септігі.',
+                        value: 'Menu1_Child2_Content2',
+                        subList: []
+                    },
+                    {
+                        label: '3-сабақ. Жатыс септігі.',
+                        value: 'Menu1_Child2_Content3',
+                        subList: []
+                    },
+                    {
+                        label: '4-сабақ. Септік жалғауының емьесі.',
+                        value: 'Menu1_Child2_Content4',
+                        subList: []
+                    },
+                    {
+                        label: '5-сабақ. Зат есімнің жіктелуі.',
+                        value: 'Menu1_Child2_Content5',
+                        subList: []
+                    },
+                    {
+                        label: '6-сабақ. Есімдік.',
+                        value: 'Menu1_Child2_Content6',
+                        subList: []
+                    },
+                    {
+                        label: '7-сабақ. Етістік.',
+                        value: 'Menu1_Child2_Content7',
                         subList: []
                     },
                     {
@@ -54,206 +114,49 @@ export const list = [
                     }
                 ]
             },
-            {
-                label: 'Деректер түрлері, мәндері, айнамалылары және атаулары',
-                value: 'Menu1_Child3_Content0',
-                subList: [
-                    {
-                        label: 'Типтер, мәліметтер - литералдар',
-                        value: 'Menu1_Child3_Content1',
-                        subList: []
-                    },
-                    {
-                        label: 'Тақырып бойынша білім тексеру',
-                        value: 'Menu1_Child3_Content1_Quiz1',
-                        subList: []
-                    },
-                    {
-                        label: 'Меншіктеу, бірнеше есімдерді меншіктеу',
-                        value: 'Menu1_Child3_Content2',
-                        subList: []
-                    },
-                    {
-                        label: 'Тақырып бойынша білім тексеру',
-                        value: 'Menu1_Child3_Content2_Quiz1',
-                        subList: []
-                    }
-                ]
-            },
-            {
-                label: 'Сандық типтер',
-                value: 'Menu1_Child4_Content0',
-                subList: [
-                    {
-                        label: 'Бүтін сандар, нақты сандар және логикалық мәндерге қолданылатын математикалық операциялар',
-                        value: 'Menu1_Child4_Content1',
-                        subList: []
-                    },
-                    {
-                        label: 'Тақырып бойынша білім тексеру',
-                        value: 'Menu1_Child4_Content1_Quiz1',
-                        subList: []
-                    }
-                ]
-            },
-            {
-                label: 'Мәтін жолдары',
-                value: 'Menu1_Child5_Content0',
-                subList: [
-                    {
-                        label: 'Тырнақша көмегімен жолдарды құру',
-                        value: 'Menu1_Child5_Content1',
-                        subList: []
-                    },
-                    {
-                        label: 'Тақырып бойынша білім тексеру',
-                        value: 'Menu1_Child5_Content1_Quiz1',
-                        subList: []
-                    },
-                    {
-                        label: 'Жолдарға қолданылатын амалдар және өңдеуге арналған функциялар',
-                        value: 'Menu1_Child5_Content2',
-                        subList: []
-                    },
-                    {
-                        label: 'Тақырып бойынша білім тексеру',
-                        value: 'Menu1_Child5_Content2_Quiz1',
-                        subList: []
-                    }
-                ]
-            },
-            {
-                label: 'Шартты операторлар if...else',
-                value: 'Menu1_Child6_Content0',
-                subList: [
-                    {
-                        label: 'if, elif, else... операторларының көмегімен салыстыру',
-                        value: 'Menu1_Child6_Content1',
-                        subList: []
-                    },
-                    {
-                        label: 'Тақырып бойынша білім тексеру',
-                        value: 'Menu1_Child6_Content1_Quiz1',
-                        subList: []
-                    }
-                ]
-            },
-            {
-                label: 'while және for көмегімен қайталау операторларын құру',
-                value: 'Menu1_Child7_Content0',
-                subList: [
-                    {
-                        label: 'while циклінің көмегімен әрекеттерді қайталау',
-                        value: 'Menu1_Child7_Content1',
-                        subList: []
-                    },
-                    {
-                        label: 'Тақырып бойынша білім тексеру',
-                        value: 'Menu1_Child7_Content1_Quiz1',
-                        subList: []
-                    },
-                    {
-                        label: 'for және шт кілт сөздерін қолданып итерация жасау',
-                        value: 'Menu1_Child7_Content2',
-                        subList: []
-                    },
-                    {
-                        label: 'Тақырып бойынша білім тексеру',
-                        value: 'Menu1_Child7_Content2_Quiz1',
-                        subList: []
-                    }
-                ]
-            },
         ]
     },
     {
-        label: 'Функциялар, кортеждер, тізімдер, сөздіктер және жиындар',
+        label: 'Оқушылар',
         value: 'Menu2_Child0_Content0',
         subList: [
             {
-                label: 'Тізімдер, сөздіктер, кортеждер, жиындар',
-                value: 'Menu2_Child1_Content0',
-                subList: [
-                    {
-                        label: 'Тізімдер',
-                        value: 'Menu2_Child1_Content1',
-                        subList: []
-                    },
-                    {
-                        label: 'Тақырып бойынша білім тексеру',
-                        value: 'Menu2_Child1_Content1_Quiz1',
-                        subList: []
-                    },
-                    {
-                        label: 'Сөздіктер',
-                        value: 'Menu2_Child1_Content2',
-                        subList: []
-                    },
-                    {
-                        label: 'Тақырып бойынша білім тексеру',
-                        value: 'Menu2_Child1_Content2_Quiz1',
-                        subList: []
-                    },
-                    {
-                        label: 'Кортеждер',
-                        value: 'Menu2_Child1_Content3',
-                        subList: []
-                    },
-                    {
-                        label: 'Тақырып бойынша білім тексеру',
-                        value: 'Menu2_Child1_Content3_Quiz1',
-                        subList: []
-                    },
-                    {
-                        label: 'Жиындар',
-                        value: 'Menu2_Child1_Content4',
-                        subList: []
-                    },
-                    {
-                        label: 'Тақырып бойынша білім тексеру',
-                        value: 'Menu2_Child1_Content4_Quiz1',
-                        subList: []
-                    }
-                ]
+                label: '3-сынып',
+                value: 'Menu1_Child1_Content1_Student3',
+                subList: []
             },
             {
-                label: 'Функция',
-                value: 'Menu2_Child2_Content0',
-                subList: [
-                    {
-                        label: 'Функция',
-                        value: 'Menu2_Child2_Content1',
-                        subList: []
-                    },
-                    {
-                        label: 'Тақырып бойынша білім тексеру',
-                        value: 'Menu2_Child2_Content1_Quiz1',
-                        subList: []
-                    }
-                ]
-            },
+                label: '4-сынып',
+                value: 'Menu1_Child1_Content2_Student4',
+                subList: []
+            }
         ]
     },
-];
+    {
+        label: 'Нұсқаулық',
+        value: 'Menu3_Child1_Content1',
+        subList: []
+    }
+]
 
 function Content({content, ...props}){
     switch(content){
         case  'Menu1_Child1_Content1': return <Menu1_Child1_Content1/>;
+        case  'Menu1_Child1_Content2': return <Menu1_Child1_Content2/>;
+        case  'Menu1_Child1_Content3': return <Menu1_Child1_Content3/>;
+        case  'Menu1_Child1_Content4': return <Menu1_Child1_Content4/>;
+        case  'Menu1_Child1_Content5': return <Menu1_Child1_Content5/>;
+        case  'Menu1_Child1_Content6': return <Menu1_Child1_Content6/>;
+        case  'Menu1_Child1_Content7': return <Menu1_Child1_Content7/>;
         case  'Menu1_Child2_Content1': return <Menu1_Child2_Content1/>;
-        case  'Menu1_Child3_Content1': return <Menu1_Child3_Content1/>;
-        case  'Menu1_Child3_Content2': return <Menu1_Child3_Content2/>;
-        case  'Menu1_Child4_Content1': return <Menu1_Child4_Content1/>;
-        case  'Menu1_Child5_Content1': return <Menu1_Child5_Content1/>;
-        case  'Menu1_Child5_Content2': return <Menu1_Child5_Content2/>;
-        case  'Menu1_Child6_Content1': return <Menu1_Child6_Content1/>;
-        case  'Menu1_Child7_Content1': return <Menu1_Child7_Content1/>;
-        case  'Menu1_Child7_Content2': return <Menu1_Child7_Content2/>;
-        case  'Menu2_Child1_Content1': return <Menu2_Child1_Content1/>;
-        case  'Menu2_Child1_Content2': return <Menu2_Child1_Content2/>;
-        case  'Menu2_Child1_Content3': return <Menu2_Child1_Content3/>;
-        case  'Menu2_Child1_Content4': return <Menu2_Child1_Content4/>;
-        case  'Menu2_Child2_Content1': return <Menu2_Child2_Content1/>;
-        default: return content.includes('Quiz')?  <Test content={content}/> : <Menu1_Child1_Content1/>;
+        case  'Menu1_Child2_Content2': return <Menu1_Child2_Content2/>;
+        case  'Menu1_Child2_Content3': return <Menu1_Child2_Content3/>;
+        case  'Menu1_Child2_Content4': return <Menu1_Child2_Content4/>;
+        case  'Menu1_Child2_Content5': return <Menu1_Child2_Content5/>;
+        case  'Menu1_Child2_Content6': return <Menu1_Child2_Content6/>;
+        case  'Menu1_Child2_Content7': return <Menu1_Child2_Content7/>;
+        case  'Menu3_Child1_Content1': return <Menu3_Child1_Content1/>;
+        default: return content.includes('Quiz')? <Test content={content}/> : content.includes('Student')? <Student content={content}/> : <Menu1_Child1_Content1/>;
     }
 }
 
