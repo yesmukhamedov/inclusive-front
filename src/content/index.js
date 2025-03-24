@@ -2,7 +2,7 @@ import React from 'react';
 import Test from './Test';
 import Student from './Student';
 import Menu1_Child1_Content1 from './Menu1_Child1_Content1';
-import Menu1_Child1_Content2 from './Menu1_Child1_Content2.js';
+import Menu1_Child1_Content2 from './Menu1_Child1_Content2';
 import Menu1_Child1_Content3 from './Menu1_Child1_Content3';
 import Menu1_Child1_Content4 from './Menu1_Child1_Content4';
 import Menu1_Child1_Content5 from './Menu1_Child1_Content5';
@@ -155,8 +155,8 @@ function Content({content, ...props}){
         case  'Menu1_Child2_Content5': return <Menu1_Child2_Content5/>;
         case  'Menu1_Child2_Content6': return <Menu1_Child2_Content6/>;
         case  'Menu1_Child2_Content7': return <Menu1_Child2_Content7/>;
-        case  'Menu3_Child1_Content1': return <Menu3_Child1_Content1/>;
-        default: return content.includes('Quiz')? <Test content={content}/> : content.includes('Student')? <Student content={content}/> : <Menu1_Child1_Content1/>;
+        case  'Menu3_Child1_Content1': return <Menu3_Child1_Content1 style={{ all: 'unset' }}/>;
+        default: return content.includes('Quiz')? <Test content={content}/> : content.includes('Student')? <Student content={content} style={{ all: 'unset' }}/> : <Menu1_Child1_Content1/>;
     }
 }
 

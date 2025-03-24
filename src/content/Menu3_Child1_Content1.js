@@ -11,7 +11,7 @@ const contentStyle = {
     textAlign: 'center',
     background: '#364d79',
   };
-    return <>
+    return <div style={{ all: 'unset' }}>
     <h1>Ақпараттық технологиялар арқылы жалпы білім беру ұйымдарында инклюзивті білім беруді ұйымдастыру</h1>
     {/* <Skeleton active /> */}
     <div
@@ -266,7 +266,7 @@ const contentStyle = {
               </Col>
             </Row>
           </Drawer>
-    </>
+    </div>
 }
 
 export default Menu3_Child1_Content1;

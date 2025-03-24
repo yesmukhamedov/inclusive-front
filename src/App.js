@@ -488,8 +488,6 @@ function App({ ...props }) {
                 content={state.content}
                 user={state.user}
               />}
-              
-
               <Affix
                 offsetTop={120}
                 // onChange={(affixed) => console.log(affixed)}

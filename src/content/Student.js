@@ -45,7 +45,7 @@ const normFile = (e) => {
 
 function Student(props) {
     
-    return <>
+    return <div style={{ all: 'unset' }}>
         <Splitter style={{ height: '100vh', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
             <Splitter.Panel defaultSize="40%" min="20%" max="70%">
                 <List
@@ -184,7 +184,7 @@ function Student(props) {
   </>
             </Splitter.Panel>
         </Splitter>
-    </>
+    </div>
 }
 
 export default Student;
