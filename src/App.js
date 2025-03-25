@@ -36,7 +36,7 @@ import {
 import Multimedia, { list } from "./content";
 import Loader from "./components/Loader";
 import "./style.css";
-import { login, logout, register, authMe, setTheme } from "./redux/slices/auth";
+import { login, logout, register, authMe, setTheme, getStudents } from "./redux/slices/auth";
 const { Sider, Content, Header, Footer } = Layout;
 const { Step } = Steps;
 const { Option } = Select;
@@ -49,8 +49,14 @@ function App({ ...props }) {
     user: state.auth.user,
   }));
 
+  const { students } = useSelector((state) => ({
+    user: state.students,
+  }));
+
   React.useEffect(() => {
     dispatch(authMe());
+
+    dispatch(getStudents());
   }, []);
 
   React.useEffect(() => {
