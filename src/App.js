@@ -36,7 +36,8 @@ import {
 import Multimedia, { list } from "./content";
 import Loader from "./components/Loader";
 import "./style.css";
-import { login, logout, register, authMe, setTheme, getStudents } from "./redux/slices/auth";
+import { login, logout, register, authMe } from "./redux/slices/auth";
+import { setTheme, getStudents } from "./redux/slices/students";
 const { Sider, Content, Header, Footer } = Layout;
 const { Step } = Steps;
 const { Option } = Select;
@@ -50,35 +51,38 @@ function App({ ...props }) {
   }));
 
   const { students } = useSelector((state) => ({
-    user: state.students,
+    students: state.students.students
   }));
 
   React.useEffect(() => {
     dispatch(authMe());
-
-    dispatch(getStudents());
   }, []);
+
+  React.useEffect(()=>{
+    if(!user?.supervisor)
+      dispatch(getStudents());
+  }, [user]);
 
   React.useEffect(() => {
     user?.token && window.localStorage.setItem("token", user.token);
   }, [user]);
 
-  React.useEffect(() => {
-    setState({
-      ...state,
-      user: user ? { ...state.user, ...user } : { theme: "light" },
-    });
-  }, [user]);
+  // React.useEffect(() => {
+  //   setState({
+  //     ...state,
+  //     user: user ? { ...state.user, ...user } : { theme: "light" },
+  //   });
+  // }, [user]);
 
-  React.useEffect(() => {
-    if(user?._id && user?.theme){
-      dispatch(setTheme({ _id: user._id, theme: user.theme }));
-    }
-  }, [user?.theme]);
+  // React.useEffect(() => {
+  //   if(user?._id && user?.theme){
+  //     dispatch(setTheme({ _id: user._id, theme: user.theme }));
+  //   }
+  // }, [user?.theme]);
 
   const [state, setState] = React.useState({
     user: {
-      type: "Оқытушы",
+      type: !!user?.supervisorId? "Оқушы" : "Оқытушы",
       theme: "light",
       ...user,
     },
@@ -102,7 +106,7 @@ function App({ ...props }) {
     },
   });
 
-  console.log({ state, user });
+  console.log({ state, user, students });
 
   function drawer(element) {
     setState({
@@ -113,7 +117,7 @@ function App({ ...props }) {
 
   const menu = (list) =>
     list
-      .filter((m) => (user?.token ? true : !m.value.includes("Quiz")))
+      .filter((m) => (user?.token ? user?.supervisor? !m.value.includes("Student") : true : !m.value.includes("Quiz")))
       .map((listElement) =>
         listElement.subList?.length ? (
           <Menu.SubMenu
@@ -428,23 +432,25 @@ function App({ ...props }) {
                       <Button
                         type="primary"
                         htmlType="submit"
-                        onClick={() => {
-                          dispatch(
-                            register({
-                              ...state.form.register,
-                              supervisorId:
-                                state.form.register.supervisorId !== ""
-                                  ? state.form.register.supervisorId
-                                  : null,
-                            })
-                            .unwrap().then(result=>{
-                              if(result.payload && result.payload.user){
-                                drawer('register');
-                              }
-                            })
-                          );
-                          drawer("register");
-                        }}
+                        onClick={async () => {
+                          try {
+                            const result = await dispatch(
+                              register({
+                                ...state.form.register,
+                                supervisorId:
+                                  state.form.register.supervisorId !== ""
+                                    ? state.form.register.supervisorId
+                                    : null,
+                              })
+                            ).unwrap();
+                        
+                            if (result.payload && result.payload.user) {
+                              drawer("register");
+                            }
+                          } catch (err) {
+                            console.error("Ошибка регистрации:", err);
+                          }
+                          }}
                       >
                         Тіркелу
                       </Button>
@@ -493,6 +499,8 @@ function App({ ...props }) {
                 className={`${state.user.theme}Multimedia`}
                 content={state.content}
                 user={state.user}
+                students={students}
+                setTheme={theme=>dispatch(setTheme(theme))}
               />}
               <Affix
                 offsetTop={120}
@@ -544,9 +552,13 @@ function App({ ...props }) {
                   current={1}
                   percent={60}
                 >
-                  <Step title="Дәріс #1" description="This is a description." />
-                  <Step title="Дәріс #2" description="This is a description." />
-                  <Step title="Дәріс #3" description="This is a description." />
+                  <Step title="Сабақ-1" description="This is a description." />
+                  <Step title="Сабақ-2" description="This is a description." />
+                  <Step title="Сабақ-3" description="This is a description." />
+                  <Step title="Сабақ-4" description="This is a description." />
+                  <Step title="Сабақ-5" description="This is a description." />
+                  <Step title="Сабақ-6" description="This is a description." />
+                  <Step title="Сабақ-7" description="This is a description." />
                 </Steps>
               </Col>
               <Col span={18}>

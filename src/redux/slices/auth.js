@@ -16,16 +16,6 @@ export const authMe = createAsyncThunk(
   async () => (await axios.get("/auth/me")).data
 );
 
-export const setTheme = createAsyncThunk(
-  "/setTheme",
-  async (params) => (await axios.post("/set-theme", params)).data
-);
-
-export const getStudents = createAsyncThunk(
-  "/students",
-  async () => (await axios.get("/students")).data
-);
-
 const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -76,19 +66,6 @@ const authSlice = createSlice({
     [authMe.rejected]: (state, action) => {
       state.status = "error";
       state.user = null;
-    },
-    // Students
-    [getStudents.pending]: (state) => {
-      state.status = "loading";
-      state.students = null;
-    },
-    [getStudents.fulfilled]: (state, action) => {
-      state.status = "loaded";
-      state.students = action.payload.students;
-    },
-    [getStudents.rejected]: (state, action) => {
-      state.status = "error";
-      state.students = null;
     },
   },
 });

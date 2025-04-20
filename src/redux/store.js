@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { testsReducer } from './slices/tests';
 import { authReducer } from './slices/auth';
+import { studentsReducer } from './slices/students';
 
 const asyncThunkMiddleware = store => next => action => {
     if (typeof action === 'function') {
@@ -12,7 +13,8 @@ const asyncThunkMiddleware = store => next => action => {
 const store = configureStore({
     reducer: {
         tests: testsReducer,
-        auth: authReducer
+        auth: authReducer,
+        students: studentsReducer 
     },
     middleware: [asyncThunkMiddleware],
 });
