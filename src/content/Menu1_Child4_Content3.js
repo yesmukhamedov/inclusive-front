@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Menu1_Child3_Content3 = () => {
+const Menu1_Child4_Content3 = () => {
 
     return (
         <>Жатыс септігі</>
     )
 }
 
-export default Menu1_Child3_Content3;
+export default Menu1_Child4_Content3;

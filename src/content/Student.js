@@ -51,7 +51,7 @@ console.log(state)
                         avatar={<Avatar src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${index}`} />}
                         title={<a href="https://ant.design">{student.fullName}</a>}
                         onClick={()=>setState({...state, selected: student, form: student})}
-                        description="Оқушы жайлы қосымша ақпараттар."
+                        description={student.special?" (ерекше оқушы)":""}
                         />
                     </List.Item>
                     )}
@@ -183,6 +183,11 @@ console.log(state)
         <Button disabled={!state.form?.special} onClick={()=>setTheme(state.form)}>Сақтау</Button>
       </Form.Item>
     </Form>
+    <Card style={{background: state.form?.theme?.backgroundColor}}>
+      <span style={{fontSize: 14*state.form?.theme?.fontSize, color: state.form?.theme?.textColor}}>
+        Бұл бір мысал жазба, болашақ бет бейнесін бағалауға арналған. Айтылған ойлармен келісу-келіспеу өз еркіңізде. Маңыздысы – қалай жеткізілгені. Бұл бір мысал жазба, болашақ бет бейнесін бағалауға арналған. Айтылған ойлармен келісу-келіспеу өз еркіңізде. Маңыздысы – қалай жеткізілгені. Бұл бір мысал жазба, болашақ бет бейнесін бағалауға арналған. Айтылған ойлармен келісу-келіспеу өз еркіңізде. Маңыздысы – қалай жеткізілгені. Бұл бір мысал жазба, болашақ бет бейнесін бағалауға арналған. Айтылған ойлармен келісу-келіспеу өз еркіңізде. Маңыздысы – қалай жеткізілгені.
+      </span>
+    </Card>
   </>
             </Splitter.Panel>
         </Splitter>
